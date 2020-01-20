@@ -1,0 +1,175 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?92467277');
+  src: url('../fonts/fontello.eot?92467277#iefix') format('embedded-opentype'),
+    url('../fonts/fontello.woff2?92467277') format('woff2'), url('../fonts/fontello.woff?92467277') format('woff'),
+    url('../fonts/fontello.ttf?92467277') format('truetype'),
+    url('../fonts/fontello.svg?92467277#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  /*margin-right: .2em;*/
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  /*margin-left: .2em;*/
+
+  /* you can be more comfortable with increased icons size */
+  font-size: 105%;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-upload-resume:before {
+  content: '\e800';
+} /* 'Ã®Â â‚¬' */
+.icon-vendor:before {
+  content: '\e801';
+} /* 'Ã®Â ï¿½' */
+.icon-view-resume:before {
+  content: '\e802';
+} /* 'Ã®Â â€š' */
+.icon-ai-sourcing:before {
+  content: '\e803';
+} /* 'Ã®Â Æ’' */
+.icon-appointment:before {
+  content: '\e804';
+} /* 'Ã®Â â€ž' */
+.icon-arya:before {
+  content: '\e805';
+} /* 'Ã®Â â€¦' */
+.icon-assign-user:before {
+  content: '\e806';
+} /* 'Ã®Â â€ ' */
+.icon-associations:before {
+  content: '\e807';
+} /* 'Ã®Â â€¡' */
+.icon-binoculars:before {
+  content: '\e808';
+} /* 'Ã®Â Ë†' */
+.icon-candidate:before {
+  content: '\e809';
+} /* 'Ã®Â â€°' */
+.icon-contact:before {
+  content: '\e80a';
+} /* 'Ã®Â Å ' */
+.icon-contacts:before {
+  content: '\e80b';
+} /* 'Ã®Â â€¹' */
+.icon-contact-submission:before {
+  content: '\e80c';
+} /* 'Ã®Â Å’' */
+.icon-dice:before {
+  content: '\e80d';
+} /* 'Ã®Â ï¿½' */
+.icon-email-slash-o:before {
+  content: '\e80e';
+} /* 'Ã®Â Å½' */
+.icon-envelope:before {
+  content: '\e80f';
+} /* 'Ã®Â ï¿½' */
+.icon-expense:before {
+  content: '\e810';
+} /* 'Ã®Â ï¿½' */
+.icon-hires:before {
+  content: '\e811';
+} /* 'Ã®Â â€˜' */
+.icon-hiring-manager:before {
+  content: '\e812';
+} /* 'Ã®Â â€™' */
+.icon-indeed:before {
+  content: '\e813';
+} /* 'Ã®Â â€œ' */
+.icon-interactions:before {
+  content: '\e814';
+} /* 'Ã®Â â€' */
+.icon-internal-submission:before {
+  content: '\e815';
+} /* 'Ã®Â â€¢' */
+.icon-invoice:before {
+  content: '\e816';
+} /* 'Ã®Â â€“' */
+.icon-job-order:before {
+  content: '\e817';
+} /* 'Ã®Â â€”' */
+.icon-mailchimp:before {
+  content: '\e818';
+} /* 'Ã®Â Ëœ' */
+.icon-nexxt:before {
+  content: '\e819';
+} /* 'Ã®Â â„¢' */
+.icon-note:before {
+  content: '\e81a';
+} /* 'Ã®Â Å¡' */
+.icon-onboarding:before {
+  content: '\e81b';
+} /* 'Ã®Â â€º' */
+.icon-onedrive:before {
+  content: '\e81c';
+} /* 'Ã®Â Å“' */
+.icon-opportunity:before {
+  content: '\e81d';
+} /* 'Ã®Â ï¿½' */
+.icon-pipeline:before {
+  content: '\e81e';
+} /* 'Ã®Â Å¾' */
+.icon-pitch:before {
+  content: '\e81f';
+} /* 'Ã®Â Å¸' */
+.icon-recent:before {
+  content: '\e820';
+} /* 'Ã®Â Â ' */
+.icon-reminder:before {
+  content: '\e821';
+} /* 'Ã®Â Â¡' */
+.icon-remove-hotlist:before {
+  content: '\e822';
+} /* 'Ã®Â Â¢' */
+.icon-resume-library:before {
+  content: '\e823';
+} /* 'Ã®Â Â£' */
+.icon-sliders:before {
+  content: '\e824';
+} /* 'Ã®Â Â¤' */
+.icon-status-icon:before {
+  content: '\e825';
+} /* 'Ã®Â Â¥' */
+.icon-status-icon-old:before {
+  content: '\e826';
+} /* 'Ã®Â Â¦' */
+.icon-task-finish:before {
+  content: '\e827';
+} /* 'Ã®Â Â§' */
+.icon-timesheet:before {
+  content: '\e828';
+} /* 'Ã®Â Â¨' */
+.icon-unpublish-icon:before {
+  content: '\e829';
+} /* 'Ã®Â Â©' */
+.icon-zoom-in:before {
+  content: '\f07e';
+} /* 'Ã¯ï¿½Â¾' */
