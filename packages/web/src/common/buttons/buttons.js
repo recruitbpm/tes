@@ -28,9 +28,24 @@ export const ButtonBase = styled.button`
   box-sizing: inherit;
   box-shadow: none;
   outline: none;
+
+  ${props => (props.disabled ? 'background: #e9ebee;    opacity: 0.3; pointer-events:none;' : '')}
 `;
 
-export const PrimaryButtonLink = styled.a``;
+export const HeaderButton = styled(ButtonBase)`
+  color: rgba(0, 0, 0, 0.65);
+  background: #dddfe2;
+  border: 1px solid #e1e1e1;
+  padding: 6px 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  :hover {
+    background: #dddfe2;
+    border-color: #dddfe2;
+    color: rgba(0, 0, 0, 0.75);
+    outline: none;
+  }
+`;
 
 export const PrimaryButton = styled(ButtonBase)`
   color: #fff;

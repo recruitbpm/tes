@@ -15,11 +15,11 @@ const HeaderBar = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  height: 52px;
-  color: #8f939e;
+  height: ${HEADER_HEIGH_PX.large}px;
+  color: rgba(0, 0, 0, 0.65);
   background: #fff;
   box-sizing: border-box;
-  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.04);
   margin-bottom: 4px;
   z-index: 999;
 `;
@@ -35,11 +35,11 @@ const HeaderRight = styled.div`
 
 const ToggleLeftNavButton = styled.a`
   display: flex;
-  width: ${HEADER_HEIGH_PX.large}px;
   height: ${HEADER_HEIGH_PX.large}px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  padding: 0 10px;
 
   :hover {
     color: #1d2939;
@@ -53,7 +53,7 @@ const AddButton = styled.a`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 10px;
   :hover {
     color: #1d2939;
     background-color: #f7f7f7;
@@ -66,7 +66,33 @@ const SearchButton = styled.a`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 5px;
+  :hover {
+    color: #1d2939;
+    background-color: #f7f7f7;
+  }
+`;
+
+const LinkedINSearchButton = styled.a`
+  display: flex;
+  height: ${HEADER_HEIGH_PX.large}px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
+  :hover {
+    color: #1d2939;
+    background-color: #f7f7f7;
+  }
+`;
+
+const SavedSearchesButton = styled.a`
+  display: flex;
+  height: ${HEADER_HEIGH_PX.large}px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
   :hover {
     color: #1d2939;
     background-color: #f7f7f7;
@@ -138,7 +164,7 @@ const StyledProfileImage = styled.img`
 `;
 
 const ChildrenContainer = styled.div`
-  padding-top: 52px;
+  padding-top: ${HEADER_HEIGH_PX.large}px;
 `;
 
 export default ({ children }) => {
@@ -150,11 +176,20 @@ export default ({ children }) => {
             <FontAwesomeIcon icon="bars" size="lg" />
           </ToggleLeftNavButton>
           <AddButton>
-            <StyledFontAwesomeIcon icon="plus" size="sm" /> New
+            <StyledFontAwesomeIcon icon="plus" /> New
           </AddButton>
           <SearchButton>
-            <StyledFontAwesomeIcon icon="search" size="sm" /> Search
+            <StyledFontAwesomeIcon icon="search" /> Search
           </SearchButton>
+          <SearchButton>
+            <StyledFontAwesomeIcon icon="search-plus" /> Advance Search
+          </SearchButton>
+          <LinkedINSearchButton>
+            <StyledFontAwesomeIcon icon={['fab', 'linkedin']} /> LinkedIn Search
+          </LinkedINSearchButton>
+          <SavedSearchesButton>
+            <StyledFontAwesomeIcon icon="search-plus" /> Searches
+          </SavedSearchesButton>
         </HeaderLeft>
 
         <HeaderRight>

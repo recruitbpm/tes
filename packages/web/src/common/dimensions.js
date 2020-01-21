@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 //NEW
-export const HEADER_HEIGH_PX = { large: 52 };
+export const HEADER_HEIGH_PX = { large: 40 };
 
 export const LEFT_NAV_WIDTH_PX = { large: 200 };
 

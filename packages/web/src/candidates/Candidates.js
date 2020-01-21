@@ -7,6 +7,7 @@ import { getCandidates } from 'bi-core/candidates/selectors';
 import withRequest from 'bi-core/withRequest';
 import { PrimaryButton } from '../common/buttons/buttons';
 import DataTable from 'react-data-table-component';
+import ListingHeader from '../common/listingHeader';
 
 const columns = [
   {
@@ -62,7 +63,10 @@ const columns = [
   },
 ];
 
-const DatatableContainer = styled.div``;
+const DatatableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledDataTable = styled(DataTable)`
   overflow: auto;
@@ -80,19 +84,19 @@ const StyledDataTable = styled(DataTable)`
 class Candidates extends React.Component {
   state = {
     currentPage: 0,
+    isRecordSelected: false,
   };
 
   render = () => {
-    console.log(this.props);
-
+    const { currentPage, isRecordSelected } = this.state;
     const { candidates, isAnotherPage, getNextPage, totalElements } = this.props;
-    const { currentPage } = this.state;
 
     if (candidates.length > 0) {
       return (
         <DatatableContainer>
+          <ListingHeader title="Employees" isRecordSelected={isRecordSelected} />
           <StyledDataTable
-            title="Employees"
+            noHeader
             data={candidates}
             columns={columns}
             selectableRows

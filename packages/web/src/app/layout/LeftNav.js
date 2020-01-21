@@ -38,9 +38,9 @@ const StyledIcon = styled.i`
 `;
 
 const StyledListItem = styled.li`
-  width: calc(100% - 16px);
-  padding: 8px;
-  font-size: 12px;
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 13px;
   line-height: 17px;
   cursor: pointer;
 
@@ -63,6 +63,7 @@ const CopyRights = styled.div`
 
 const StyledLogo = styled.img`
   margin-left: 10px;
+  height: 30px;
 `;
 
 const LeftNav = props => {
@@ -75,7 +76,7 @@ const LeftNav = props => {
         <StyledList>
           <StyledListItem>
             <StyledLink to="/">
-              <StyledIcon className="fa fa-home"></StyledIcon> Dashboard
+              <StyledIcon className="fa fa-tachometer-alt"></StyledIcon> Dashboard
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
