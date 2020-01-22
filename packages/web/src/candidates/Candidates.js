@@ -77,51 +77,147 @@ const columns = [
     compact: true,
   },
   {
-    name: <InputField placeholder="First Name" />,
+    name: (
+      <InputField
+        placeholder="First Name"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
+    cell: row => (
+      <a href="#" style={{ color: '#0070D2' }}>
+        {row.first_name}
+      </a>
+    ),
     selector: 'first_name',
     sortable: true,
   },
   {
-    name: <InputField placeholder="Last Name" />,
+    name: (
+      <InputField
+        placeholder="Last Name"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
+    cell: row => (
+      <a href="#" style={{ color: '#0070D2' }}>
+        {row.last_name}
+      </a>
+    ),
     selector: 'last_name',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="Preferred Name" />,
+    name: (
+      <InputField
+        placeholder="Preferred Name"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'preferred_name',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="Status" />,
+    name: (
+      <InputField
+        placeholder="Status"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     cell: row => getModuleStatusButton(row),
-    grow: 2,
+    width: '200px',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="State" />,
+    name: (
+      <InputField
+        placeholder="State"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'state_name',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="City" />,
+    name: (
+      <InputField
+        placeholder="City"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'city',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="Job Title" />,
+    name: (
+      <InputField
+        placeholder="Job Title"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'job_title',
+    sortable: true,
     grow: 2,
   },
   {
-    name: <InputField placeholder="Owner" />,
+    name: (
+      <InputField
+        placeholder="Owner"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'created_username',
+    sortable: true,
   },
   {
-    name: <InputField placeholder="Updated By" />,
-    selector: 'updated_username',
+    name: (
+      <InputField
+        placeholder="Updated By"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
+    cell: row => (
+      <a href="#" style={{ color: '#0070D2' }}>
+        {row.updated_username}
+      </a>
+    ),
+    sortable: true,
   },
   {
-    name: <InputField placeholder="Updated Date" />,
+    name: (
+      <InputField
+        placeholder="Updated Date"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
     selector: 'updated_date',
+    sortable: true,
+    width: '200px',
   },
   {
-    name: <InputField placeholder="Primary Email" />,
-    selector: 'email1',
+    name: (
+      <InputField
+        placeholder="Primary Email"
+        onKeyPress={e => e.key === 'Enter' && e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+      />
+    ),
+    cell: row => (
+      <a href="#" style={{ color: '#0070D2' }}>
+        {row.email1}
+      </a>
+    ),
+    sortable: true,
+    width: '250px',
   },
 ];
 
@@ -150,6 +246,14 @@ const StyledDataTable = styled(DataTable)`
   .rdt_Pagination {
     display: flex;
     justify-content: flex-start;
+  }
+
+  .rdt_TableCol_Sortable {
+    flex-direction: row-reverse;
+  }
+
+  .rdt_TableCol {
+    padding: 0px 5px;
   }
 `;
 
@@ -226,10 +330,11 @@ class Candidates extends React.Component {
             paginationTotalRows={totalElements}
             onChangePage={this.onChangePage}
             onSelectedRowsChange={this.onSelectedRowsChange}
+            sortIcon={<FontAwesomeIcon icon={'long-arrow-alt-down'} />}
           />
-        ) : (
-          <ProgressIndicator />
-        )}
+        ) : null
+        // <ProgressIndicator />
+        }
       </DatatableContainer>
     );
   };
