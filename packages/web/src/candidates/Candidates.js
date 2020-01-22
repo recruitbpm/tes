@@ -275,6 +275,8 @@ const getModuleStatusButton = row => {
     outline: none;
 
     ${row.status_colour_code}
+
+    border: none;
   `;
 
   return (
