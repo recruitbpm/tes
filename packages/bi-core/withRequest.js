@@ -184,6 +184,7 @@ const withPaging = WrappedComponent => {
       const nextPage = pageNumber || page + 1;
 
       return totalElements && totalElements > itemsPerPage * page;
+      // return totalElements && totalElements > itemsPerPage * nextPage;
     };
 
     getNextPage = pageNumber => {
