@@ -5,6 +5,8 @@ import { compose } from 'lodash/fp';
 import { matchPath, withRouter } from 'react-router-dom';
 import { getIsAuthenticated } from 'bi-core/user/selectors';
 import { authenticateUser } from 'bi-core/user/actions';
+import { toggleNavigationCollapsedState } from 'bi-core/app/actions';
+import { getIsNavigationCollapsed } from 'bi-core/app/selectors';
 import SnackBar from '../SnackBar';
 import MainPanel from './MainPanel';
 import LeftNav from './LeftNav';
@@ -25,13 +27,22 @@ class Layout extends React.Component {
     </Container>
   );
 
-  renderWithNav = () => (
-    <Container>
-      <LeftNav />
-      <MainPanel>{this.props.children}</MainPanel>
-      <SnackBar />
-    </Container>
-  );
+  renderWithNav = () => {
+    const { toggleNavigationCollapsedState, isNavigationCollapsed } = this.props;
+
+    return (
+      <Container>
+        <LeftNav isNavigationCollapsed={isNavigationCollapsed} />
+        <MainPanel
+          onToggleNavigationClick={toggleNavigationCollapsedState}
+          isNavigationCollapsed={isNavigationCollapsed}
+        >
+          {this.props.children}
+        </MainPanel>
+        <SnackBar />
+      </Container>
+    );
+  };
 
   render = () => {
     const isAuthenticationRoute = matchPath(this.props.location.pathname, routes.login);
@@ -41,10 +52,12 @@ class Layout extends React.Component {
 
 const mapStateToProps = state => ({
   isAuthenticated: getIsAuthenticated(state),
+  isNavigationCollapsed: getIsNavigationCollapsed()(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   authenticateUser: () => dispatch(authenticateUser()),
+  toggleNavigationCollapsedState: () => dispatch(toggleNavigationCollapsedState()),
 });
 
 export default compose(

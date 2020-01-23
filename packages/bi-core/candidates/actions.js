@@ -7,8 +7,6 @@ export const FETCH_CANDIDATES_SUCCESS = 'FETCH_CANDIDATES_SUCCESS';
 export const FETCH_CANDIDATES_FAILURE = 'FETCH_CANDIDATES_FAILURE';
 
 export const fetchCandidates = (requestId, pagination) => async (dispatch, getState) => {
-  console.log(pagination);
-
   const state = getState();
 
   let paginationQueryParams = '';

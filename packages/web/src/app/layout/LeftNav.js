@@ -38,9 +38,9 @@ const StyledIcon = styled.i`
 `;
 
 const StyledListItem = styled.li`
-  width: calc(100% - 20px);
-  padding: 10px;
-  font-size: 13px;
+  width: calc(100% - 30px);
+  padding: 15px;
+  font-size: 15px;
   line-height: 17px;
   cursor: pointer;
 
@@ -66,85 +66,161 @@ const StyledLogo = styled.img`
   height: 30px;
 `;
 
-const LeftNav = props => {
-  return (
-    <LeftNavContainer>
-      <LogoContainer>
-        <StyledLogo src="/images/tes-logo.png" alt="tes-logo.png" />
-      </LogoContainer>
-      <NavContainer>
-        <StyledList>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="fa fa-tachometer-alt"></StyledIcon> Dashboard
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-contacts"></StyledIcon> Client
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/candidates">
-              <StyledIcon className="fa fa-users"></StyledIcon> Employees
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-vendor"></StyledIcon> Vendors
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="fa fa-bullseye"></StyledIcon> Placements
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-onboarding"></StyledIcon> Onboarding
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-timesheet"></StyledIcon> Time Sheets
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-expense"></StyledIcon> Expenses
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-invoice"></StyledIcon> Invoices
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="icon-task-finish"></StyledIcon> Tasks
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="fa fa-user"></StyledIcon> Users
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="fa fa-trash"></StyledIcon> Trash
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to="/">
-              <StyledIcon className="fa fa-history"></StyledIcon> Log History
-            </StyledLink>
-          </StyledListItem>
-        </StyledList>
+const renderExpandedNavigation = () => (
+  <LeftNavContainer>
+    <LogoContainer>
+      <StyledLogo src="/images/tes-logo.png" alt="tes-logo.png" />
+    </LogoContainer>
+    <NavContainer>
+      <StyledList>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-tachometer-alt"></StyledIcon> Dashboard
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-contacts"></StyledIcon> Client
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/candidates">
+            <StyledIcon className="fa fa-users"></StyledIcon> Employees
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-vendor"></StyledIcon> Vendors
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-bullseye"></StyledIcon> Placements
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-onboarding"></StyledIcon> Onboarding
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-timesheet"></StyledIcon> Time Sheets
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-expense"></StyledIcon> Expenses
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-invoice"></StyledIcon> Invoices
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-task-finish"></StyledIcon> Tasks
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-user"></StyledIcon> Users
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-trash"></StyledIcon> Trash
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-history"></StyledIcon> Log History
+          </StyledLink>
+        </StyledListItem>
+      </StyledList>
 
-        <CopyRights>© 2014 - 2020. All Rights Reserved. RecruitBPM</CopyRights>
-      </NavContainer>
-    </LeftNavContainer>
-  );
+      <CopyRights>© 2014 - 2020. All Rights Reserved. RecruitBPM</CopyRights>
+    </NavContainer>
+  </LeftNavContainer>
+);
+
+const renderCollapsedNavigation = () => (
+  <LeftNavContainer style={{ marginTop: 40, width: 45 }}>
+    <NavContainer>
+      <StyledList>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-tachometer-alt"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-contacts"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/candidates">
+            <StyledIcon className="fa fa-users"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-vendor"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-bullseye"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-onboarding"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-timesheet"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-expense"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-invoice"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="icon-task-finish"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-user"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-trash"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/">
+            <StyledIcon className="fa fa-history"></StyledIcon>
+          </StyledLink>
+        </StyledListItem>
+      </StyledList>
+    </NavContainer>
+  </LeftNavContainer>
+);
+
+const LeftNav = ({ isNavigationCollapsed }) => {
+  return !isNavigationCollapsed ? renderExpandedNavigation() : renderCollapsedNavigation();
 };
 
 export default withRouter(LeftNav);

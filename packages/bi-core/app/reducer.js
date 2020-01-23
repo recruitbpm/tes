@@ -1,6 +1,22 @@
 import { set, merge, get } from 'lodash/fp';
-import { APP_BLUR, APP_FOCUS, APP_LOADED, APP_UNLOADED, APP_BOOTSTRAP_COMPLETE } from './actions';
+import {
+  APP_BLUR,
+  APP_FOCUS,
+  APP_LOADED,
+  APP_UNLOADED,
+  APP_BOOTSTRAP_COMPLETE,
+  NAVIGATION_TOGGLE_COLLAPSED,
+} from './actions';
+
 import { FETCH_CANDIDATES_REQUEST, FETCH_CANDIDATES_SUCCESS } from '../candidates/actions';
+export const navigation = (state = { collapsed: false }, action) => {
+  switch (action.type) {
+    case NAVIGATION_TOGGLE_COLLAPSED:
+      return set('collapsed', !state.collapsed, state);
+    default:
+      return state;
+  }
+};
 
 export const app = (state = { bootstrapped: false }, action) => {
   switch (action.type) {

@@ -9,7 +9,6 @@ import withRequest from 'bi-core/withRequest';
 import DataTable from 'react-data-table-component';
 import ListingHeader from '../common/listingHeader';
 import { CandidateSearchToolbar } from '../common/listingHeader';
-import ProgressIndicator from '../common/progressIndicator';
 import { InputField } from '../common/formElements/input';
 
 const StyledIcon = styled.i``;
@@ -21,7 +20,10 @@ const StyledRingCenteralButton = styled.a`
   border-radius: 3px;
   cursor: pointer;
 
-  ${props => (props.row.phone_direct !== '' ? 'background: orange;' : 'background: #dddfe2;')}
+  ${props =>
+    props.row.phone_contact && props.row.phone_contact !== ''
+      ? 'background: orange;'
+      : 'background: #dddfe2;pointer-events:none;'}
 `;
 const columns = [
   {
@@ -301,10 +303,10 @@ class Candidates extends React.Component {
 
   onChangePage = (page, totalRows) => {
     const { currentPage } = this.state;
-    const { isAnotherPage, getNextPage } = this.props;
+    const { getNextPage } = this.props;
 
     if (page > currentPage) {
-      isAnotherPage() && getNextPage();
+      getNextPage();
       this.setState({ currentPage: page });
     }
   };
@@ -326,27 +328,23 @@ class Candidates extends React.Component {
             data={candidates}
             columns={columns}
             selectableRows
-            pagination
             highlightOnHover
-            paginationPerPage={25}
+            pagination
+            paginationPerPage={100}
+            paginationRowsPerPageOptions={[100]}
             paginationTotalRows={totalElements}
             onChangePage={this.onChangePage}
             onSelectedRowsChange={this.onSelectedRowsChange}
             sortIcon={<FontAwesomeIcon icon={'long-arrow-alt-down'} />}
           />
-        ) : null
-        // <ProgressIndicator />
-        }
+        ) : null}
       </DatatableContainer>
     );
   };
 }
 
 const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({
-  // fetchCandidates: () => dispatch(fetchCandidates()),
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default compose(
   connect(
@@ -359,6 +357,6 @@ export default compose(
     requestAction: fetchCandidates,
     responseSelector: getCandidates,
     responseAlias: 'candidates',
-    itemsPerPage: 25,
+    itemsPerPage: 100,
   })
 )(Candidates);

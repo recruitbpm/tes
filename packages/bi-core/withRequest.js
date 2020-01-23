@@ -57,7 +57,8 @@ export default (extraProps = {}) => WrappedComponent => {
       }
     }
 
-    requestCondition = () => !this.props.requestCondition || this.props.requestCondition(this.props);
+    requestCondition = () =>
+      !this.props.requestCondition || this.props.requestCondition(this.props);
 
     requestHasNoArguments = () => this.props[RequestHasNoArgumentsKey];
 
@@ -96,7 +97,11 @@ export default (extraProps = {}) => WrappedComponent => {
       let responseObject;
 
       if (typeof responseAlias === 'function') {
-        responseObject = responseAlias(responseData, globalState, ...getRequestArguments(this.props));
+        responseObject = responseAlias(
+          responseData,
+          globalState,
+          ...getRequestArguments(this.props)
+        );
       } else {
         responseObject = {
           [responseAlias || 'response']: responseData,
@@ -115,7 +120,9 @@ export default (extraProps = {}) => WrappedComponent => {
   const mapStateToProps = (state, ownProps) => {
     const responseSelector = ownProps.responseSelector;
     const requestArgs = getRequestArguments(ownProps);
-    const responseData = responseSelector ? responseSelector(state, ownProps)(...requestArgs) : null;
+    const responseData = responseSelector
+      ? responseSelector(state, ownProps)(...requestArgs)
+      : null;
 
     return {
       responseData,
@@ -176,7 +183,7 @@ const withPaging = WrappedComponent => {
       const { totalElements, itemsPerPage, page } = this.props;
       const nextPage = pageNumber || page + 1;
 
-      return totalElements && totalElements > itemsPerPage * nextPage;
+      return totalElements && totalElements > itemsPerPage * page;
     };
 
     getNextPage = pageNumber => {

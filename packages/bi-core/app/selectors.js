@@ -1,6 +1,10 @@
 import { get } from 'lodash/fp';
 import { endPoints, endPointHostGrouping } from './endPoints';
 
+//Navigation
+export const getIsNavigationCollapsed = () => state => get('navigation.collapsed')(state);
+
+//Fetch Middleware
 export const getEndPointUrl = state => (endPointLabel, params = {}) => {
   const pathname = endPoints[endPointLabel]({ ...params });
   if (!pathname) {
@@ -19,7 +23,6 @@ export const getEndPointUrl = state => (endPointLabel, params = {}) => {
   const host = get(`config.api${hostLabel}Root`, state);
   return `${host}${pathname}`;
 };
-
 export const getPage = id => state => get(`lists.${id}.page`)(state);
 export const getFetching = id => state => get(`lists.${id}._fetching`)(state);
 export const getTotalElements = id => get(`lists.${id}.totalElements`);

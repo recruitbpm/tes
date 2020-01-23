@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import storageMiddleware from 'bi-core/storageMiddleware';
-import { app, lists } from 'bi-core/app/reducer';
+import { app, lists, navigation } from 'bi-core/app/reducer';
 import { candidates } from 'bi-core/candidates/reducer';
 import { user } from 'bi-core/user/reducer';
 import { config } from 'bi-core/config/reducer';
@@ -11,6 +11,7 @@ import fetchMiddleware from 'bi-core/fetchMiddleware';
 const reducers = combineReducers({
   app,
   lists,
+  navigation,
   candidates,
   user,
   config,

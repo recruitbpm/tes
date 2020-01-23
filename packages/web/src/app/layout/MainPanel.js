@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HEADER_HEIGH_PX } from '../../common/dimensions';
 
 const Container = styled.div`
-  margin-left: 200px;
+  margin-left: ${({ isNavigationCollapsed }) => (!isNavigationCollapsed ? '200' : '45')}px;
 `;
 
 const HeaderBar = styled.div`
   position: fixed;
-  left: 200px;
+  left: ${({ isNavigationCollapsed }) => (!isNavigationCollapsed ? '200' : '0')}px;
   top: 0;
   width: calc(100% - 200px);
   display: flex;
@@ -114,12 +114,15 @@ const HeaderLeftButton = styled.a`
   }
 `;
 
-export default ({ children }) => {
+export default ({ children, onToggleNavigationClick = null, isNavigationCollapsed = false }) => {
   return (
-    <Container>
-      <HeaderBar>
+    <Container isNavigationCollapsed={isNavigationCollapsed}>
+      <HeaderBar isNavigationCollapsed={isNavigationCollapsed}>
         <HeaderLeft>
-          <HeaderLeftButton style={{ padding: '0 10px' }}>
+          <HeaderLeftButton
+            style={{ padding: '0 13px', fontSize: 15 }}
+            onClick={onToggleNavigationClick && onToggleNavigationClick}
+          >
             <FontAwesomeIcon icon="bars" size="lg" />
           </HeaderLeftButton>
           <HeaderLeftButton>
